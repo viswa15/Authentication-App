@@ -1,0 +1,36 @@
+# Advanced Authentication Tutorial
+
+This repository contains a full-stack application with advanced authentication features such as:
+
+- Email verification
+- Password reset
+- Two-factor authentication
+- Session management
+
+The application is built using Node.js, Express.js, and MongoDB for the backend, and React.js for the frontend.
+
+## Setup
+
+To run the application, follow these steps:
+
+1. Clone the repository
+2. Run `npm install` in the root directory
+3. Run `npm run build` in the root directory
+4. Run `npm run start` in the root directory
+5. Open a web browser and navigate to `http://localhost:3000`
+
+## Features to Add
+
+- Implement two-factor authentication using Google Authenticator
+- Implement session management using JSON Web Tokens
+- Add a forgot password feature
+- Add a feature to resend the verification email
+- Add a feature to delete an account
+- Add a feature to update account information
+- Add a feature to log out of all sessions
+- Implement rate limiting to prevent brute-force attacks
+- Add a feature to track login history
+- Add a feature to track account activity
+- Implement a system to send emails to users when their account is accessed from a new device
+- Implement a system to send emails to users when their account information is updated
+- Implement a system to send emails to users when their account is deleted
