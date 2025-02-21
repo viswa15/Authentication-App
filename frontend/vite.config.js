@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: './',  // Add this line
   plugins: [react()],
+  build: {
+    outDir: 'dist', // Ensure this is set correctly
+    assetsDir: 'static', // Ensure this is set
+  },
 })
