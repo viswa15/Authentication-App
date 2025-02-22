@@ -22,7 +22,15 @@ const PORT = process.env.PORT || 5000;
 app.use("/api/auth",authRoute);
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "/frontend/dist")));
+    // app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+    app.use(express.static(path.join(__dirname, "/frontend/dist"), {
+        setHeaders: (res, path) => {
+            if (path.endsWith('.js')) {
+                res.setHeader('Content-Type', 'application/javascript');
+            }
+        }
+    }));
 
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
