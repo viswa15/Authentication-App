@@ -5,6 +5,7 @@ import {connectDB} from "./db/connectDB.js";
 import authRoute from "./routes/auth.route.js";
 import cors from "cors"
 import path from "path";
+import mime from "mime-types";
 
 const app = express();
 const __dirname = path.resolve();
@@ -24,10 +25,18 @@ app.use("/api/auth",authRoute);
 if (process.env.NODE_ENV === "production") {
     // app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
+    // app.use(express.static(path.join(__dirname, "/frontend/dist"), {
+    //     setHeaders: (res, path) => {
+    //         if (path.endsWith('.js')) {
+    //             res.setHeader('Content-Type', 'application/javascript');
+    //         }
+    //     }
+    // }));
+
     app.use(express.static(path.join(__dirname, "/frontend/dist"), {
-        setHeaders: (res, path) => {
-            if (path.endsWith('.js')) {
-                res.setHeader('Content-Type', 'application/javascript');
+        setHeaders: (res, filePath) => {
+            if (filePath.endsWith('.js')) {
+                res.set('Content-Type', mime.lookup('.js'));
             }
         }
     }));
